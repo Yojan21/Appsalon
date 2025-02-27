@@ -312,6 +312,44 @@ function mostrarResumen(){
 }
 
 async function reservarCita(){
+
+    //Extraer los datos
+    const {nombre, fecha, hora, servicios, id} = cita;
+
+    const idServicios = servicios.map(servicio => servicio.id);
+
     const datos = new FormData();
-    datos.append('nombre', 'juan');
+
+    datos.append('fecha', fecha);
+    datos.append('hora', hora);
+    datos.append('usuarioid', id);
+    datos.append('servicios', idServicios);
+
+    try {
+        //Peticion hacia la API
+        const url = 'http://localhost:3000/api/citas';
+        const respuesta = await fetch(url, {
+            method: 'POST',
+            body: datos
+        });
+        const resultado = await respuesta.json();
+
+        console.log(resultado);
+        if(resultado.resultado){
+            alerta('success', 'Cita Creada','Tu cita fue creada con exito' );
+        }
+    } catch (error) {
+        alerta('error', 'Error..', 'Se ha generado un error al crear tu cita');
+    }
+}
+
+function alerta(icono, titulo, texto){
+    Swal.fire({
+        icon: icono,
+        title: titulo,
+        text: texto,
+        button: 'OK'
+    }).then( () => {
+        window.location.reload();
+    });
 }

@@ -13,10 +13,10 @@ class APIController{
     }
 
     public static function guardar(){
-        $respuesta = [
-            'mensaje' => 'Todo OK'
-        ];
+        $cita = new Cita($_POST);
+        $resultado = $cita->guardar();
+        
 
-        echo json_encode($respuesta);
+        echo json_encode($resultado);
     }
 }
