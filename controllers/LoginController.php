@@ -54,7 +54,9 @@ class LoginController{
     }
 
     public static function logout(Router $router){
-        echo "Desde el logout";
+        session_start();
+        $_SESSION = [];
+        header('location: /');
     }
 
     public static function olvide(Router $router){
@@ -145,20 +147,19 @@ class LoginController{
                 if($resultado-> num_rows){
                     $alertas = Usuario::getAlertas();
                 }else{
+                    
                     //Hashear el Password
                     $usuario->hashPassword();
                     
                     //Generar un token unico
                     $usuario->crearToken();
-                    
                     //Enviar el email
-                    $email = new Email($usuario->email, $usuario->nombre,$usuario->token);
+                    $email = new Email($usuario->nombre, $usuario->email,$usuario->token);
                     
                     $email->enviarConfirmacion();
                     
                     //Crear el usuario
                     $resultado = $usuario->guardar();
-                    
                     if($resultado){
                         header('location: /mensaje');
                     }

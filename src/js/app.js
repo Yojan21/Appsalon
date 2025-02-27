@@ -314,7 +314,7 @@ function mostrarResumen(){
 async function reservarCita(){
 
     //Extraer los datos
-    const {nombre, fecha, hora, servicios, id} = cita;
+    const {fecha, hora, servicios, id} = cita;
 
     const idServicios = servicios.map(servicio => servicio.id);
 
@@ -334,11 +334,11 @@ async function reservarCita(){
         });
         const resultado = await respuesta.json();
 
-        console.log(resultado);
         if(resultado.resultado){
             alerta('success', 'Cita Creada','Tu cita fue creada con exito' );
         }
     } catch (error) {
+        console.log(error)
         alerta('error', 'Error..', 'Se ha generado un error al crear tu cita');
     }
 }

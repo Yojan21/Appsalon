@@ -1,6 +1,7 @@
 <?php
 namespace Classes;
 
+use Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Email{
@@ -17,19 +18,16 @@ class Email{
 
     public function enviarConfirmacion(){
         //Crear el Objeto de Email
-
         $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = 'sandbox.smtp.mailtrap.io';
         $mail->SMTPAuth = true;
         $mail->Port = 2525;
-        $mail->Username = '5addb5de89ea09';
-        $mail->Password = 'ca8f383142969b';
-
+        $mail->Username = 'a9d254e536a61b';
+        $mail->Password = '6fc82dc6f7b165';
         $mail->setFrom('cuentas@appsalon.com', 'AppSalon.com');
         $mail->addAddress($this->email, $this->nombre);
         $mail->Subject = 'Confirma tu cuenta';
-
         //Set HTML
 
         $mail->isHTML(TRUE);
