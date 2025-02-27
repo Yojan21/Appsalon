@@ -1,0 +1,37 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use "sass:color"; 
+
+.formulario{
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    align-items: left;
+    @include m.telefono{
+        flex-direction: row;
+        align-items: center;
+    }
+    label{
+        flex: 0 0 3rem;
+        @include m.telefono{
+            flex: 0 0 10rem;
+        }
+    }
+    input{
+        flex: 1;
+        border: none;
+        padding: calc(v.$separacion / 4);
+        border-radius: 1rem;
+
+        &:disabled{
+            background-color: color.adjust(v.$negro, $lightness: -20%);
+            color: v.$blanco;
+            cursor: not-allowed;
+        }
+    }
+}
