@@ -2,7 +2,7 @@
 <p class="descripcion_pagina">Completa todos los campos para crear un nuevo servicio</p>
 
 <?php 
-    //include_once __DIR__ . '/../templates/barra.php';  
+    include_once __DIR__ . '/../templates/barra.php';  
     include_once __DIR__ . '/../templates/alertas.php'; 
 ?>
 
