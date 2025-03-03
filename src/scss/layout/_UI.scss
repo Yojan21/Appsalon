@@ -23,6 +23,9 @@
         width: 95%;
         margin: 0 auto;
         padding: 3rem 0;
+        @include m.tablet{
+            overflow: scroll;
+        }
     }
 }
 
@@ -41,5 +44,17 @@
         &:hover{
             background-color: v.$rojo;
         }
+    }
+}
+
+.barra_servicios{
+    margin-bottom: v.$separacion;
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boton{
+        margin: 0 0 1rem 0;
     }
 }

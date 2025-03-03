@@ -12,6 +12,7 @@
     flex-direction: column;
     margin-bottom: 2rem;
     align-items: left;
+    max-width: 95%;
     @include m.telefono{
         flex-direction: row;
         align-items: center;
