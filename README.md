@@ -3,7 +3,7 @@
 
 *Se incluye administración de usuarios administradores y clientes, control de citas y servicios, se hizo utilizando Model View Controller*
 
-*En este Proyecto se usa HTML, CSS, JavaScript, SCSS, PHP, *
+*En este Proyecto se usa HTML, CSS, JavaScript, SCSS, PHP*
 
 
 [Web Salon de Belleza]()
